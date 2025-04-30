@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "ultimatemagic:raw_magic"
+  },
+  "result": "ultimatemagic:magic_ingot"
+}

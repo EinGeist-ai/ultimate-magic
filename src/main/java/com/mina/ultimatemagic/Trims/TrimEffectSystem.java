@@ -43,7 +43,7 @@ public class TrimEffectSystem {
         String currentTrimSet = ArmorSetChecker.getCurrentTrimSet();
         String currentMaterial = ArmorSetChecker.getCurrentTrimMaterial();
 
-        // Überprüfen Sie, ob sich der aktuelle Effekt von dem vorherigen unterscheidet
+        // Check if the last effect is diffrent from the curren
         TrimEffect currentEffect = !currentTrimSet.equals("No Trim") ?
                 TRIM_EFFECTS.get(currentTrimSet.toLowerCase()) : null;
         Double currentBonus = (currentEffect != null && !currentMaterial.equals("No Material")) ?
@@ -52,16 +52,16 @@ public class TrimEffectSystem {
         Map<EntityAttribute, EntityAttributeModifier> playerModifiers =
                 ACTIVE_MODIFIERS.get(player.getUuid());
 
-        // Wenn es keine aktiven Modifikatoren gibt und kein neuer Effekt angewendet werden soll
+        // If there is no active modificator and no new affect is applied
         if (playerModifiers == null && currentEffect == null) {
             return;
         }
 
-        // Wenn sich der Effekt geändert hat, entferne die alten Modifikatoren
+        // If the effect changes, remove the old modifications
         if (needsUpdate(player, currentEffect, currentBonus)) {
             removeAllModifiers(player);
 
-            // Wende den neuen Effekt an, wenn einer vorhanden ist
+            // Apply a new effect if one is present
             if (currentEffect != null && currentBonus != null) {
                 applyEffect(player, currentEffect, currentBonus);
             }

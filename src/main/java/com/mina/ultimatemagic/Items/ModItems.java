@@ -17,8 +17,11 @@ public class ModItems {
     public static final Item GUIDE_BOOK = registerItem("guide_book", new Item(new Item.Settings().maxCount(1)));
     public static final Item WAND = registerItem("wand", new Item(new Item.Settings().maxCount(1)));
     public static final Item WAND_GOLD = registerItem("wand_gold", new Item(new Item.Settings().maxCount(1) ));
-
     public static final Item SPELL_BOOK = registerItem("spell_book", new SpellBookItem(new Item.Settings().maxCount(1)));
+
+    public static final Item RAW_MAGIC = registerItem("raw_magic", new Item(new Item.Settings().maxCount(64) ));
+    public static final Item MAGIC_INGOT = registerItem("magic_ingot", new Item(new Item.Settings().maxCount(64) ));
+
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(UltimateMagic.MOD_ID, name), item);
@@ -39,6 +42,8 @@ public class ModItems {
             entries.add(GUIDE_BOOK);
             entries.add(WAND);
             entries.add(WAND_GOLD);
+            entries.add(RAW_MAGIC);
+            entries.add(MAGIC_INGOT);
 
         });
     }

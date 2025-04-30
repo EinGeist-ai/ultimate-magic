@@ -5,6 +5,9 @@
   "item.ultimatemagic.wand": "Wand",
   "item.ultimatemagic.wand_gold": " Gold Wand",
 
+  "item.ultimatemagic.raw_magic": "Raw Magic",
+  "item.ultimatemagic.magic_ingot": "Magic Ingot",
+
 
   "block.ultimatemagic.test_block": "Test Block",
   "block.ultimatemagic.magic_block": "Magic Block",
@@ -14,5 +17,8 @@
   "itemgroup.ultimatemagic.ultimate_magic_items": "Ultimate Magic",
 
   "recipe.ultimatemagic.guide_book": "Guide Book",
-  "recipe.ultimatemagic.spell_book": "Spell Book"
+  "recipe.ultimatemagic.spell_book": "Spell Book",
+  "recipe.ultimatemagic.wand": "Wand",
+  "recipe.ultimatemagic.gold_wand": "Gold Wand",
+  "recipe.ultimatemagic.magic_block": "Magic Block"
 }

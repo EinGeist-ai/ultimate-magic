@@ -27,6 +27,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.MAGIC_BLOCK);
                         entries.add(ModBlocks.MAGIC_ORE_BLOCK);
                         entries.add(ModBlocks.DEEPSLATE_MAGIC_ORE_BLOCK);
+                        entries.add(ModItems.RAW_MAGIC);
+                        entries.add(ModItems.MAGIC_INGOT);
 
                     })
                     .build()
