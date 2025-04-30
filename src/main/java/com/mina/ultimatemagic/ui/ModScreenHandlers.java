@@ -11,7 +11,7 @@ public class ModScreenHandlers {
     public static ScreenHandlerType<SpellBookScreenHandler> SPELL_BOOK_GUI;
 
     public static void registerScreenHandlers() {
-        UltimateMagic.LOGGER.debug("[ModScreenHandlers] Registering creen handlers");
+        UltimateMagic.LOGGER.debug("[ModScreenHandlers] Registering screen handlers");
         SPELL_BOOK_GUI = Registry.register(
             Registries.SCREEN_HANDLER,
             new Identifier("ultimatemagic", "spell_book_gui"),
