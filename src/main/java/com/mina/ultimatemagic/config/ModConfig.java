@@ -123,7 +123,7 @@ public class ModConfig {
             try (Reader reader = new FileReader(configPath.toFile())) {
                 CONFIG = GSON.fromJson(reader, TrimValues.class);
             } catch (IOException e) {
-                UltimateMagic.LOGGER.error("Fehler beim Laden der Konfiguration: ", e);
+                UltimateMagic.LOGGER.error("Error while loading config: ", e);
                 CONFIG = new TrimValues();
                 saveConfig();
             }
@@ -138,7 +138,7 @@ public class ModConfig {
         try (Writer writer = new FileWriter(configPath.toFile())) {
             GSON.toJson(CONFIG, writer);
         } catch (IOException e) {
-            UltimateMagic.LOGGER.error("Fehler beim Speichern der Konfiguration: ", e);
+            UltimateMagic.LOGGER.error("Error while saving config: ", e);
         }
     }
     

@@ -89,7 +89,7 @@ public class TrimEffectSystem {
 
         var attributeInstance = player.getAttributeInstance(effect.attribute);
         if (attributeInstance == null) {
-            UltimateMagic.LOGGER.error("Konnte Attribut nicht finden: " + effect.attribute);
+            UltimateMagic.LOGGER.error("Couldn' find Attribute: " + effect.attribute);
             return;
         }
 
@@ -115,7 +115,7 @@ public class TrimEffectSystem {
                 ServerPlayNetworking.send(serverPlayer, TRIM_SYNC_PACKET, buf);
             }
         } catch (Exception e) {
-            UltimateMagic.LOGGER.error("Fehler beim Anwenden des Effekts: " + e.getMessage());
+            UltimateMagic.LOGGER.error("Error while trying to apply effect: " + e.getMessage());
         }
     }
 
@@ -151,8 +151,8 @@ public class TrimEffectSystem {
 
                 if (attribute == null) {
                     UltimateMagic.LOGGER.error(
-                            "Attribut nicht gefunden: " + trimConfig.attribute +
-                                    " für Trim-Muster: " + trimPattern
+                            "Attribut not Found: " + trimConfig.attribute +
+                                    " for: " + trimPattern
                     );
                     continue;
                 }
