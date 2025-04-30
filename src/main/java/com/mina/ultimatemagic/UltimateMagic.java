@@ -19,12 +19,12 @@ public class UltimateMagic implements ModInitializer {
     @Override
     public void onInitialize() {
         LOGGER.debug("[UltimateMagic] Starting mod initialization");
-        ModConfig.loadConfig(); // Lade die Konfiguration
+        ModConfig.loadConfig();
         ModItemGroups.registerItemGroups();
         ModItems.registerModItems();
         ModBlocks.registerModBlocks();
         ModScreenHandlers.registerScreenHandlers();
-        ArmorSetChecker.register(); // Registriere den Event-Handler statt direktem Aufruf
+        ArmorSetChecker.register();
         TrimEffectSystem.registerServer();
         LOGGER.debug("[UltimateMagic] Mod initialization completed");
     }

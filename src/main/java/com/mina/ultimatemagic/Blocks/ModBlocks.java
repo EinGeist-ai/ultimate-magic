@@ -1,5 +1,6 @@
 package com.mina.ultimatemagic.Blocks;
 
+import com.mina.ultimatemagic.Items.ModItems;
 import com.mina.ultimatemagic.UltimateMagic;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.AbstractBlock;
@@ -21,6 +22,19 @@ public class ModBlocks {
             new Block(AbstractBlock.Settings.create().strength(4f)
                     .luminance((state) -> 15).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
 
+    public static final Block MAGIC_BLOCK = registerBlock("magic_block",
+            new Block(AbstractBlock.Settings.create().strength(4f)
+                    .luminance((state) -> 15).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
+
+    public static final Block MAGIC_ORE_BLOCK = registerBlock("magic_ore_block",
+            new Block(AbstractBlock.Settings.create().strength(4f)
+                    .luminance((state) -> 15).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
+
+    public static final Block DEEPSLATE_MAGIC_ORE_BLOCK = registerBlock("deepslate_magic_ore_block",
+            new Block(AbstractBlock.Settings.create().strength(4f)
+                    .luminance((state) -> 15).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
+
+
 
     private static Block registerBlock(String name, Block block){
         LOGGER.debug("[ModBlocks] Registering block: {}", name);
@@ -35,13 +49,16 @@ public class ModBlocks {
 
     public static void registerModBlocks(){
         LOGGER.debug("[ModBlocks] Starting block registration");
-        // ... existing registrations ...
+
         UltimateMagic.LOGGER.info("Regestering Mod Blocks for " + MOD_ID);
 
         RegistryKey<ItemGroup> ultimateMagicGroupKey = RegistryKey.of(Registries.ITEM_GROUP.getKey(), new Identifier(MOD_ID, "ultimate_magic_items"));
         ItemGroupEvents.modifyEntriesEvent(ultimateMagicGroupKey).register(entries -> {
-
+            entries.add(ModBlocks.MAGIC_BLOCK);
             entries.add(ModBlocks.TEST_BLOCK);
+            entries.add(ModBlocks.MAGIC_ORE_BLOCK);
+            entries.add(ModBlocks.DEEPSLATE_MAGIC_ORE_BLOCK);
+
         });
 
         LOGGER.debug("[ModBlocks] Block registration completed");

@@ -24,6 +24,9 @@ public class ModItemGroups {
                         entries.add(ModItems.WAND_GOLD);
                         entries.add(ModItems.WAND);
                         entries.add(ModBlocks.TEST_BLOCK);
+                        entries.add(ModBlocks.MAGIC_BLOCK);
+                        entries.add(ModBlocks.MAGIC_ORE_BLOCK);
+                        entries.add(ModBlocks.DEEPSLATE_MAGIC_ORE_BLOCK);
 
                     })
                     .build()
