@@ -1,0 +1,15 @@
+{
+
+  "item.ultimatemagic.spell_book": "Spell Book",
+  "item.ultimatemagic.guide_book": "Guide Book",
+  "item.ultimatemagic.wand": "Wand",
+  "item.ultimatemagic.wand_gold": " Gold Wand",
+
+
+  "block.ultimatemagic.test_block": "Test Block",
+
+  "itemgroup.ultimatemagic.ultimate_magic_items": "Ultimate Magic",
+
+  "recipe.ultimatemagic.guide_book": "Guide Book",
+  "recipe.ultimatemagic.spell_book": "Spell Book"
+}

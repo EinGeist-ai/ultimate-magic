@@ -1,0 +1,50 @@
+package com.mina.ultimatemagic.Blocks;
+
+import com.mina.ultimatemagic.UltimateMagic;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemGroups;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.Registries;
+import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.Identifier;
+import net.minecraft.registry.RegistryKey;
+import static com.mina.ultimatemagic.UltimateMagic.MOD_ID;
+import static com.mina.ultimatemagic.UltimateMagic.LOGGER;
+
+public class ModBlocks {
+    public static final Block TEST_BLOCK = registerBlock("test_block",
+            new Block(AbstractBlock.Settings.create().strength(4f)
+                    .luminance((state) -> 15).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
+
+
+    private static Block registerBlock(String name, Block block){
+        LOGGER.debug("[ModBlocks] Registering block: {}", name);
+        registerBlockItem(name, block);
+        return Registry.register(Registries.BLOCK, Identifier.of(MOD_ID, name), block);
+    }
+
+    private static void registerBlockItem(String name, Block block){
+        Registry.register(Registries.ITEM, Identifier.of(MOD_ID, name),
+                new BlockItem(block, new Item.Settings()));
+    }
+
+    public static void registerModBlocks(){
+        LOGGER.debug("[ModBlocks] Starting block registration");
+        // ... existing registrations ...
+        UltimateMagic.LOGGER.info("Regestering Mod Blocks for " + MOD_ID);
+
+        RegistryKey<ItemGroup> ultimateMagicGroupKey = RegistryKey.of(Registries.ITEM_GROUP.getKey(), new Identifier(MOD_ID, "ultimate_magic_items"));
+        ItemGroupEvents.modifyEntriesEvent(ultimateMagicGroupKey).register(entries -> {
+
+            entries.add(ModBlocks.TEST_BLOCK);
+        });
+
+        LOGGER.debug("[ModBlocks] Block registration completed");
+    }
+
+}

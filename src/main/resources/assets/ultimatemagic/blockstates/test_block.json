@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "ultimatemagic:block/test_block"
+    }
+  }
+}
