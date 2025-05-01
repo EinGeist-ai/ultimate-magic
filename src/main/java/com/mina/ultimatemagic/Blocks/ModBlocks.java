@@ -30,10 +30,6 @@ public class ModBlocks {
             new Block(AbstractBlock.Settings.create().strength(4f)
                     .luminance((state) -> 15).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
 
-    public static final Block DEEPSLATE_MAGIC_ORE_BLOCK = registerBlock("deepslate_magic_ore_block",
-            new Block(AbstractBlock.Settings.create().strength(4f)
-                    .luminance((state) -> 15).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
-
 
 
     private static Block registerBlock(String name, Block block){
@@ -57,7 +53,6 @@ public class ModBlocks {
             entries.add(ModBlocks.MAGIC_BLOCK);
             entries.add(ModBlocks.TEST_BLOCK);
             entries.add(ModBlocks.MAGIC_ORE_BLOCK);
-            entries.add(ModBlocks.DEEPSLATE_MAGIC_ORE_BLOCK);
 
         });
 
