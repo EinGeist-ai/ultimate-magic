@@ -2,7 +2,7 @@
   "type": "minecraft:blasting",
   "category": "misc",
   "cookingtime": 100,
-  "experience": 0.7,
+  "experience": 1,
   "ingredient": {
     "item": "ultimatemagic:raw_magic"
   },
