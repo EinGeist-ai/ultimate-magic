@@ -6,16 +6,19 @@
       "item": "ultimatemagic:magic_ingot"
     },
     "X": {
+      "item": "minecraft:blaze_rod"
+    },
+    "Y": {
       "item": "minecraft:gold_ingot"
     }
   },
   "pattern": [
-    "  #",
-    " X ",
+    " Y#",
+    " XY",
     "X  "
   ],
   "result": {
     "count": 1,
-    "item": "ultimatemagic:wand_gold"
+    "item": "ultimatemagic:blaze_wand"
   }
 }

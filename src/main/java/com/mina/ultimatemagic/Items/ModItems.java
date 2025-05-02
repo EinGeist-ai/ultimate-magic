@@ -16,8 +16,9 @@ public class ModItems {
     // Register items
     public static final Item GUIDE_BOOK = registerItem("guide_book", new Item(new Item.Settings().maxCount(1)));
     public static final Item WAND = registerItem("wand", new Item(new Item.Settings().maxCount(1)));
-    public static final Item WAND_GOLD = registerItem("wand_gold", new Item(new Item.Settings().maxCount(1) ));
+    public static final Item BLAZE_WAND = registerItem("blaze_wand", new Item(new Item.Settings().maxCount(1) ));
     public static final Item SPELL_BOOK = registerItem("spell_book", new SpellBookItem(new Item.Settings().maxCount(1)));
+    public static final Item ARTIFACT_BLOODSTONE = registerItem("artifact_bloodstone", new Item(new Item.Settings().maxCount(64)));
 
     public static final Item RAW_MAGIC = registerItem("raw_magic", new Item(new Item.Settings().maxCount(64) ));
     public static final Item MAGIC_INGOT = registerItem("magic_ingot", new Item(new Item.Settings().maxCount(64) ));
@@ -41,9 +42,10 @@ public class ModItems {
             entries.add(SPELL_BOOK);
             entries.add(GUIDE_BOOK);
             entries.add(WAND);
-            entries.add(WAND_GOLD);
+            entries.add(BLAZE_WAND);
             entries.add(RAW_MAGIC);
             entries.add(MAGIC_INGOT);
+            entries.add(ARTIFACT_BLOODSTONE);
 
         });
     }

@@ -21,13 +21,14 @@ public class ModItemGroups {
                     .entries((displayContext, entries) -> { // Add the items to the group
                         entries.add(ModItems.GUIDE_BOOK);
                         entries.add(ModItems.SPELL_BOOK);
-                        entries.add(ModItems.WAND_GOLD);
+                        entries.add(ModItems.BLAZE_WAND);
                         entries.add(ModItems.WAND);
                         entries.add(ModBlocks.TEST_BLOCK);
                         entries.add(ModBlocks.MAGIC_BLOCK);
                         entries.add(ModBlocks.MAGIC_ORE_BLOCK);
                         entries.add(ModItems.RAW_MAGIC);
                         entries.add(ModItems.MAGIC_INGOT);
+                        entries.add(ModItems.ARTIFACT_BLOODSTONE);
 
                     })
                     .build()

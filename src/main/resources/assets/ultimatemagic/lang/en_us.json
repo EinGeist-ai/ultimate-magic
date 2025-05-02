@@ -3,7 +3,8 @@
   "item.ultimatemagic.spell_book": "Spell Book",
   "item.ultimatemagic.guide_book": "Guide Book",
   "item.ultimatemagic.wand": "Wand",
-  "item.ultimatemagic.wand_gold": " Gold Wand",
+  "item.ultimatemagic.blaze_wand": " Blaze Wand",
+  "item.ultimatemagic.artifact_bloodstone": "Bloodstone",
 
   "item.ultimatemagic.raw_magic": "Raw Magic",
   "item.ultimatemagic.magic_ingot": "Magic Ingot",
@@ -18,6 +19,6 @@
   "recipe.ultimatemagic.guide_book": "Guide Book",
   "recipe.ultimatemagic.spell_book": "Spell Book",
   "recipe.ultimatemagic.wand": "Wand",
-  "recipe.ultimatemagic.gold_wand": "Gold Wand",
+  "recipe.ultimatemagic.baze_wand": "Blaze Wand",
   "recipe.ultimatemagic.magic_block": "Magic Block"
 }
