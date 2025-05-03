@@ -19,9 +19,12 @@ public class ModItems {
     public static final Item BLAZE_WAND = registerItem("blaze_wand", new Item(new Item.Settings().maxCount(1) ));
     public static final Item SPELL_BOOK = registerItem("spell_book", new SpellBookItem(new Item.Settings().maxCount(1)));
     public static final Item ARTIFACT_BLOODSTONE = registerItem("artifact_bloodstone", new Item(new Item.Settings().maxCount(64)));
+    public static final Item ARTIFACT_PUREMAGICCRYSTAL = registerItem("artifact_puremagiccrystal", new Item(new Item.Settings().maxCount(64)));
 
     public static final Item RAW_MAGIC = registerItem("raw_magic", new Item(new Item.Settings().maxCount(64) ));
     public static final Item MAGIC_INGOT = registerItem("magic_ingot", new Item(new Item.Settings().maxCount(64) ));
+    public static final Item RAW_PEWTER = registerItem("raw_pewter", new Item(new Item.Settings().maxCount(64) ));
+    public static final Item PEWTER_INGOT = registerItem("pewter_ingot", new Item(new Item.Settings().maxCount(64) ));
 
 
     private static Item registerItem(String name, Item item) {
@@ -46,6 +49,9 @@ public class ModItems {
             entries.add(RAW_MAGIC);
             entries.add(MAGIC_INGOT);
             entries.add(ARTIFACT_BLOODSTONE);
+            entries.add(ARTIFACT_PUREMAGICCRYSTAL);
+            entries.add(RAW_PEWTER);
+            entries.add(PEWTER_INGOT);
 
         });
     }

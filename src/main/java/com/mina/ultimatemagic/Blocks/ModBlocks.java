@@ -30,6 +30,15 @@ public class ModBlocks {
             new Block(AbstractBlock.Settings.create().strength(4f)
                     .luminance((state) -> 15).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
 
+    public static final Block PEWTER_ORE_BLOCK = registerBlock("pewter_ore_block",
+            new Block(AbstractBlock.Settings.create().strength(4f)
+                    .luminance((state) -> 15).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
+
+    public static final Block PEWTER_BLOCK = registerBlock("pewter_block",
+            new Block(AbstractBlock.Settings.create().strength(4f)
+                    .luminance((state) -> 15).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
+
+
 
 
     private static Block registerBlock(String name, Block block){
@@ -53,6 +62,8 @@ public class ModBlocks {
             entries.add(ModBlocks.MAGIC_BLOCK);
             entries.add(ModBlocks.TEST_BLOCK);
             entries.add(ModBlocks.MAGIC_ORE_BLOCK);
+            entries.add(ModBlocks.PEWTER_ORE_BLOCK);
+            entries.add(ModBlocks.PEWTER_BLOCK);
 
         });
 

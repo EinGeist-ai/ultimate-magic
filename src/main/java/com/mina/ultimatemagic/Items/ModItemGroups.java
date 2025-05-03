@@ -29,6 +29,9 @@ public class ModItemGroups {
                         entries.add(ModItems.RAW_MAGIC);
                         entries.add(ModItems.MAGIC_INGOT);
                         entries.add(ModItems.ARTIFACT_BLOODSTONE);
+                        entries.add(ModItems.ARTIFACT_PUREMAGICCRYSTAL);
+                        entries.add(ModBlocks.PEWTER_ORE_BLOCK);
+                        entries.add(ModBlocks.PEWTER_BLOCK);
 
                     })
                     .build()

@@ -5,14 +5,18 @@
   "item.ultimatemagic.wand": "Wand",
   "item.ultimatemagic.blaze_wand": " Blaze Wand",
   "item.ultimatemagic.artifact_bloodstone": "Bloodstone",
+  "item.ultimatemagic.artifact_puremagiccrystal": "Pure Magic Crystal",
 
   "item.ultimatemagic.raw_magic": "Raw Magic",
+  "item.ultimatemagic.raw_pewter": "Raw Pewter",
   "item.ultimatemagic.magic_ingot": "Magic Ingot",
-
+  "item.ultimatemagic.pewter_ingot": "Pewter Ingot",
 
   "block.ultimatemagic.test_block": "Test Block",
   "block.ultimatemagic.magic_block": "Magic Block",
   "block.ultimatemagic.magic_ore_block": "Magic Ore",
+  "block.ultimatemagic.pewter_ore_block": "Pewter Ore",
+  "block.ultimatemagic.pewter_block": "Pewter Block",
 
   "itemgroup.ultimatemagic.ultimate_magic_items": "Ultimate Magic",
 

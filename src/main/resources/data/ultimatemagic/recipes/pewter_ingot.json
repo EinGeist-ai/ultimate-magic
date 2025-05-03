@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "ultimatemagic:pewter_block"
+    }
+  ],
+  "result": {
+    "item": "ultimatemagic:pewter_ingot",
+    "count": 9
+  }
+}
