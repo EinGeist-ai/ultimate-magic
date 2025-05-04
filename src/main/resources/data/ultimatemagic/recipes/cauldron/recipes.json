@@ -1,0 +1,14 @@
+[
+  {
+    "recipe_id": "bloodstone",
+    "ingredients": {
+      "Magic Ingot": 2,
+      "Pewter Ingot": 2
+    },
+    "fluid": "Wasser",
+    "fluid_level": 1,
+    "fluid_consume": 1,
+    "result": "artifact_bloodstone",
+    "result_count": 1
+  }
+]

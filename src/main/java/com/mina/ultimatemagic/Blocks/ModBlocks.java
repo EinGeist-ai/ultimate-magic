@@ -24,7 +24,8 @@ public class ModBlocks {
 
     public static final Block MAGIC_BLOCK = registerBlock("magic_block",
             new Block(AbstractBlock.Settings.create().strength(4f)
-                    .luminance((state) -> 15).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
+                    .luminance((state) -> 15).sounds(BlockSoundGroup.AMETHYST_BLOCK)),
+            new Item.Settings().fireproof());
 
     public static final Block MAGIC_ORE_BLOCK = registerBlock("magic_ore_block",
             new Block(AbstractBlock.Settings.create().strength(4f)
@@ -36,20 +37,26 @@ public class ModBlocks {
 
     public static final Block PEWTER_BLOCK = registerBlock("pewter_block",
             new Block(AbstractBlock.Settings.create().strength(4f)
-                    .luminance((state) -> 15).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
+                    .luminance((state) -> 15).sounds(BlockSoundGroup.AMETHYST_BLOCK)),
+            new Item.Settings().maxCount(16).fireproof());
 
 
 
 
-    private static Block registerBlock(String name, Block block){
+    private static Block registerBlock(String name, Block block, Item.Settings settings) {
         LOGGER.debug("[ModBlocks] Registering block: {}", name);
-        registerBlockItem(name, block);
+        registerBlockItem(name, block, settings);
         return Registry.register(Registries.BLOCK, Identifier.of(MOD_ID, name), block);
     }
 
-    private static void registerBlockItem(String name, Block block){
+    private static void registerBlockItem(String name, Block block, Item.Settings settings) {
         Registry.register(Registries.ITEM, Identifier.of(MOD_ID, name),
-                new BlockItem(block, new Item.Settings()));
+                new BlockItem(block, settings));
+    }
+
+    // Überladene Methode für Standardeinstellungen
+    private static Block registerBlock(String name, Block block) {
+        return registerBlock(name, block, new Item.Settings());
     }
 
     public static void registerModBlocks(){
