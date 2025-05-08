@@ -72,7 +72,7 @@ public class CauldronTracker {
     }
 
     public static class ItemInfo {
-        public String name;  // Dies wird jetzt die Item-ID sein
+        public String name;
         public int count;
 
         ItemInfo(String name, int count) {
@@ -99,48 +99,46 @@ public class CauldronTracker {
         BlockState state = world.getBlockState(pos);
         CauldronContent content = new CauldronContent();
 
-        // Debug für Flüssigkeitserkennung
+
         if (state.isOf(Blocks.CAULDRON)) {
             content.fluidType = "Leer";
             content.fluidLevel = 0;
-            UltimateMagic.LOGGER.debug("[Kessel] Leerer Kessel erkannt bei " + pos);
+            UltimateMagic.LOGGER.debug("[Kessel] Empty Cauldron:  " + pos);
         } else if (state.getBlock() instanceof LeveledCauldronBlock) {
             content.fluidLevel = state.get(LeveledCauldronBlock.LEVEL);
             if (state.isOf(Blocks.WATER_CAULDRON)) {
                 content.fluidType = "Wasser";
-                UltimateMagic.LOGGER.debug("[Kessel] Wasserkessel erkannt: Level " + content.fluidLevel);
+                UltimateMagic.LOGGER.debug("[Kessel] Cauldron: Level " + content.fluidLevel);
             } else if (state.isOf(Blocks.LAVA_CAULDRON)) {
                 content.fluidType = "Lava";
-                UltimateMagic.LOGGER.debug("[Kessel] Lavakessel erkannt: Level " + content.fluidLevel);
+                UltimateMagic.LOGGER.debug("[Kessel] Lavacauldron: Level " + content.fluidLevel);
             } else if (state.isOf(Blocks.POWDER_SNOW_CAULDRON)) {
                 content.fluidType = "Pulverschnee";
-                UltimateMagic.LOGGER.debug("[Kessel] Schneekessel erkannt: Level " + content.fluidLevel);
+                UltimateMagic.LOGGER.debug("[Kessel] Snowcauldron: Level " + content.fluidLevel);
             }
         }
 
         Box searchBox = new Box(pos).expand(0.125);
         List<ItemEntity> itemEntities = world.getEntitiesByClass(ItemEntity.class, searchBox, entity -> true);
 
-        UltimateMagic.LOGGER.debug("[Kessel] Suche nach Items im Kessel bei " + pos);
-        UltimateMagic.LOGGER.debug("[Kessel] Gefundene Entities: " + itemEntities.size());
+        UltimateMagic.LOGGER.debug("[Kessel] Looking for Items in culdron: " + pos);
+        UltimateMagic.LOGGER.debug("[Kessel] Found entities: " + itemEntities.size());
 
         for (ItemEntity entity : itemEntities) {
             String itemName = entity.getStack().getItem().getName().getString();
             String itemId = Registries.ITEM.getId(entity.getStack().getItem()).toString();
             int count = entity.getStack().getCount();
 
-            UltimateMagic.LOGGER.debug("[Kessel] Gefundenes Item:");
+            UltimateMagic.LOGGER.debug("[Kessel] Found items:");
             UltimateMagic.LOGGER.debug("  - Name: " + itemName);
             UltimateMagic.LOGGER.debug("  - ID: " + itemId);
-            UltimateMagic.LOGGER.debug("  - Anzahl: " + count);
+            UltimateMagic.LOGGER.debug("  - Count: " + count);
 
             content.items.add(new ItemInfo(itemName, count));
         }
 
         return content;
     }
-
-    // Öffentliche Hilfsmethoden
     public static List<BlockPos> findNearbyCauldrons(ServerWorld world, BlockPos center, int radius) {
         List<BlockPos> cauldrons = new ArrayList<>();
         
@@ -167,7 +165,6 @@ public class CauldronTracker {
     }
 
     private static void trackCauldrons(ServerWorld world) {
-        // Überprüfe alle geladenen Chunks in der Welt
         for (BlockPos pos : getAllKnownCauldrons(world)) {
             if (world.isChunkLoaded(pos)) {
                 BlockState state = world.getBlockState(pos);
@@ -181,10 +178,10 @@ public class CauldronTracker {
     private static Set<BlockPos> getAllKnownCauldrons(ServerWorld world) {
         Set<BlockPos> cauldrons = new HashSet<>(lastKnownStates.keySet());
         
-        // Suche in einem Bereich um jeden Spieler
+
         for (ServerPlayerEntity player : world.getPlayers()) {
             BlockPos playerPos = player.getBlockPos();
-            int searchRadius = 16; // Suchradius in Blöcken
+            int searchRadius = 16;
             
             for (int x = -searchRadius; x <= searchRadius; x++) {
                 for (int y = -searchRadius; y <= searchRadius; y++) {
@@ -221,19 +218,13 @@ public class CauldronTracker {
             UltimateMagic.LOGGER.debug("  Vorher: " + (previousContent != null ? formatCauldronContent(previousContent) : "null"));
             UltimateMagic.LOGGER.debug("  Nachher: " + formatCauldronContent(currentContent));
 
-            // Chat-Nachricht senden
+
             String message = String.format("Kessel bei %s, %s, %s: %s", 
                 pos.getX(), pos.getY(), pos.getZ(), 
                 formatCauldronContent(currentContent));
                 
             world.getPlayers().forEach(player -> 
                 player.sendMessage(Text.of(message)));
-
-            // Status aktualisieren
-            
-            // Fügen Sie diese Zeile hinzu:
-            
-
             CauldronRecipeManager.checkAndCraft(world, pos);
         
             lastKnownStates.put(pos, currentContent);
@@ -256,7 +247,7 @@ public class CauldronTracker {
             sb.append(", Items: ");
             content.items.forEach(item -> 
                 sb.append(item.name).append(" x").append(item.count).append(", "));
-            sb.setLength(sb.length() - 2); // Letztes Komma entfernen
+            sb.setLength(sb.length() - 2);
         }
         
         return sb.toString();

@@ -20,7 +20,6 @@ public class TrimEffectSystem {
     private static final Map<UUID, Map<EntityAttribute, EntityAttributeModifier>> ACTIVE_MODIFIERS = new HashMap<>();
     public static final Identifier TRIM_SYNC_PACKET = new Identifier("ultimatemagic", "trim_sync");
 
-    // Record-Definition für TrimEffect
     private record TrimEffect(
             UUID modifierId,
             EntityAttribute attribute,
@@ -43,7 +42,6 @@ public class TrimEffectSystem {
         String currentTrimSet = ArmorSetChecker.getCurrentTrimSet();
         String currentMaterial = ArmorSetChecker.getCurrentTrimMaterial();
 
-        // Check if the last effect is diffrent from the curren
         TrimEffect currentEffect = !currentTrimSet.equals("No Trim") ?
                 TRIM_EFFECTS.get(currentTrimSet.toLowerCase()) : null;
         Double currentBonus = (currentEffect != null && !currentMaterial.equals("No Material")) ?
@@ -52,16 +50,13 @@ public class TrimEffectSystem {
         Map<EntityAttribute, EntityAttributeModifier> playerModifiers =
                 ACTIVE_MODIFIERS.get(player.getUuid());
 
-        // If there is no active modificator and no new affect is applied
         if (playerModifiers == null && currentEffect == null) {
             return;
         }
 
-        // If the effect changes, remove the old modifications
         if (needsUpdate(player, currentEffect, currentBonus)) {
             removeAllModifiers(player);
 
-            // Apply a new effect if one is present
             if (currentEffect != null && currentBonus != null) {
                 applyEffect(player, currentEffect, currentBonus);
             }

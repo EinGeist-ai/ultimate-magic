@@ -16,9 +16,9 @@ public class ModItemGroups {
             Registries.ITEM_GROUP,
             new Identifier(UltimateMagic.MOD_ID, "ultimate_magic_items"),
             FabricItemGroup.builder()
-                    .icon(() -> new ItemStack(ModItems.GUIDE_BOOK)) // Set the icon for the item group
-                    .displayName(Text.translatable("itemgroup.ultimatemagic.ultimate_magic_items")) // Set the display name
-                    .entries((displayContext, entries) -> { // Add the items to the group
+                    .icon(() -> new ItemStack(ModItems.GUIDE_BOOK))
+                    .displayName(Text.translatable("itemgroup.ultimatemagic.ultimate_magic_items"))
+                    .entries((displayContext, entries) -> {
                         entries.add(ModItems.GUIDE_BOOK);
                         entries.add(ModItems.SPELL_BOOK);
                         entries.add(ModItems.BLAZE_WAND);

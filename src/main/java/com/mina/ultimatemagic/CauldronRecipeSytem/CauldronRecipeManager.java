@@ -32,7 +32,7 @@ public class CauldronRecipeManager {
             String path = "/data/ultimatemagic/recipes/cauldron/recipes.json";
             InputStream inputStream = CauldronRecipeManager.class.getResourceAsStream(path);
             if (inputStream == null) {
-                UltimateMagic.LOGGER.error("Rezeptdatei nicht gefunden: " + path);
+                UltimateMagic.LOGGER.error("Recipefile not found at: " + path);
                 return;
             }
 
@@ -44,17 +44,16 @@ public class CauldronRecipeManager {
 
             recipes.addAll(loadedRecipes);
             
-            UltimateMagic.LOGGER.info("Erfolgreich " + recipes.size() + " Rezepte geladen");
-            
-            // Debug-Ausgabe für jedes geladene Rezept
+            UltimateMagic.LOGGER.info("Succesfully loaded " + recipes.size() + " recipe");
+
             for (CauldronRecipe recipe : loadedRecipes) {
-                UltimateMagic.LOGGER.debug("Geladenes Rezept: " + recipe.getRecipeId());
+                UltimateMagic.LOGGER.debug("Loaded recipe: " + recipe.getRecipeId());
                 recipe.getIngredients().forEach((item, count) -> 
                     UltimateMagic.LOGGER.debug("  - " + item + " x" + count));
             }
             
         } catch (Exception e) {
-            UltimateMagic.LOGGER.error("Fehler beim Laden der Rezepte", e);
+            UltimateMagic.LOGGER.error("Error while loading recipe", e);
         }
     }
 
@@ -73,7 +72,6 @@ public class CauldronRecipeManager {
     }
 
     private static boolean matchesRecipe(CauldronTracker.CauldronContent content, CauldronRecipe recipe) {
-        // Prüfe Flüssigkeit und Level
         if (!recipe.getFluid().equals(content.fluidType)) {
             return false;
         }
@@ -81,7 +79,6 @@ public class CauldronRecipeManager {
             return false;
         }
 
-        // Prüfe Zutaten
         for (Map.Entry<String, Integer> entry : recipe.getIngredients().entrySet()) {
             String itemName = entry.getKey();
             int requiredCount = entry.getValue();
@@ -96,7 +93,6 @@ public class CauldronRecipeManager {
     }
 
     private static void craftRecipe(World world, BlockPos pos, CauldronRecipe recipe) {
-        // Entferne Zutaten
         Box searchBox = new Box(pos).expand(0.125);
         List<ItemEntity> itemsInCauldron = world.getEntitiesByClass(ItemEntity.class, searchBox, entity -> true);
 
@@ -120,7 +116,6 @@ public class CauldronRecipeManager {
             }
         }
 
-        // Aktualisiere Flüssigkeitsstand
         BlockState state = world.getBlockState(pos);
         if (state.getBlock() instanceof LeveledCauldronBlock) {
             int newLevel = state.get(LeveledCauldronBlock.LEVEL) - recipe.getFluidConsume();
@@ -131,12 +126,11 @@ public class CauldronRecipeManager {
             }
         }
 
-        // Erstelle das Ergebnis
         Identifier resultId = new Identifier("ultimatemagic", recipe.getResult());
         Item resultItem = Registries.ITEM.get(resultId);
         ItemStack resultStack = new ItemStack(resultItem, recipe.getResultCount());
 
-        UltimateMagic.LOGGER.debug("Erstelle Item: " + resultId); // Debug-Ausgabe
+        UltimateMagic.LOGGER.debug("Creating Item: " + resultId);
 
         ItemEntity result = new ItemEntity(world, 
             pos.getX() + 0.5, 

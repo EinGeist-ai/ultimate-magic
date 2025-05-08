@@ -16,7 +16,7 @@ public class CauldronRecipe {
     @SerializedName("result_count")
     private int resultCount;
 
-    // Getter-Methoden
+
     public String getRecipeId() { return recipeId; }
     public Map<String, Integer> getIngredients() { return ingredients; }
     public String getFluid() { return fluid; }

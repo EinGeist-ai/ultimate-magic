@@ -32,7 +32,7 @@ public class ModConfig {
         public Map<String, TrimConfig> trimEffects = new HashMap<>();
         
         public TrimValues() {
-            // Sentry Trim Konfiguration
+
             Map<String, Double> sentryBonuses = new HashMap<>();
             sentryBonuses.put("netherite", 0.4);
             sentryBonuses.put("diamond", 0.3);
@@ -52,7 +52,7 @@ public class ModConfig {
                 "Sentry Health Bonus"
             ));
             
-            // Wild Trim Konfiguration
+
             Map<String, Double> wildBonuses = new HashMap<>();
             wildBonuses.put("netherite", 0.4);
             wildBonuses.put("diamond", 0.3);
@@ -72,7 +72,7 @@ public class ModConfig {
                 "Wild Damage Bonus"
             ));
             
-            // Vex Trim Konfiguration
+
             Map<String, Double> vexBonuses = new HashMap<>();
             vexBonuses.put("netherite", 0.3);
             vexBonuses.put("diamond", 0.25);
@@ -92,7 +92,7 @@ public class ModConfig {
                 "Vex Speed Bonus"
             ));
 
-            // Eye Trim Konfiguration
+
             Map<String, Double> eyeBonuses = new HashMap<>();
             eyeBonuses.put("netherite", 0.3);
             eyeBonuses.put("diamond", 0.25);

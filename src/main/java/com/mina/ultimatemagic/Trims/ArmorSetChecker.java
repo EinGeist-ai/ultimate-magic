@@ -17,12 +17,10 @@ import java.util.regex.Pattern;
 
 public class ArmorSetChecker {
     private static final Map<UUID, String> lastSetStates = new HashMap<>();
-    
-    // Static variables to track current trim state
+
     private static String currentTrimSet = "No Trim";
     private static String currentTrimMaterial = "No Material";
-    
-    // Getters for the trim state
+
     public static String getCurrentTrimSet() {
         return currentTrimSet;
     }
@@ -95,7 +93,6 @@ public class ArmorSetChecker {
             }
         }
 
-        // Update the static variables
         if (hasFullSet && firstPattern != null && firstMaterial != null) {
             currentTrimSet = capitalizeFirstLetter(firstPattern);
             currentTrimMaterial = capitalizeFirstLetter(firstMaterial);

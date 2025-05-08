@@ -54,7 +54,7 @@ public class ModBlocks {
                 new BlockItem(block, settings));
     }
 
-    // Überladene Methode für Standardeinstellungen
+
     private static Block registerBlock(String name, Block block) {
         return registerBlock(name, block, new Item.Settings());
     }
